@@ -1,6 +1,6 @@
-package com.EspServer.Esp.Service;
+package com.EspServer.Esp.service;
 
-import com.EspServer.Esp.Repository.ApplicationUserRepository;
+import com.EspServer.Esp.repository.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

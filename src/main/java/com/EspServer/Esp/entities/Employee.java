@@ -1,4 +1,6 @@
-package com.EspServer.Esp.Entities;
+package com.EspServer.Esp.entities;
+
+import com.EspServer.Esp.domain.EmployeeDTO;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,17 +17,23 @@ public class Employee {
     private String firstName;
     @Column(name = "last_name", nullable = false)
     private String lastName;
+    @Column(name = "email", nullable = false)
+    private String email;
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
     @Column(name = "last_update", nullable = false)
     private LocalDateTime lastUpdate;
 
-    public Employee(UUID id, String firstName, String lastName, LocalDateTime createdDate, LocalDateTime lastUpdate) {
-        this.id = id;
+    public Employee() {
+
+    }
+
+    public Employee(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.createdDate = createdDate;
-        this.lastUpdate = lastUpdate;
+        this.email = email;
+        this.createdDate = LocalDateTime.now();
+        this.lastUpdate = LocalDateTime.now();
     }
 
     public UUID getId() {
@@ -66,5 +74,12 @@ public class Employee {
 
     public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public EmployeeDTO toDTO (Employee employee) {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        this.setFirstName(employee.getFirstName());
+        this.setLastName(employee.getLastName());
+        return employeeDTO;
     }
 }

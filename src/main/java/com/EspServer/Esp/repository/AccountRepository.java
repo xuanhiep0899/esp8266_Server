@@ -1,6 +1,6 @@
-package com.EspServer.Esp.Repository;
+package com.EspServer.Esp.repository;
 
-import com.EspServer.Esp.Entities.Account;
+import com.EspServer.Esp.entities.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

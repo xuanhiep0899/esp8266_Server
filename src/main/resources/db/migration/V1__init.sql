@@ -35,3 +35,12 @@ create table application_user (
     last_updated timestamp not null default now(),
     foreign key (employee_id) references employee (id) on delete cascade
 );
+
+create table temperature (
+	id uuid not null default uuid_generate_v4() primary key,
+    employee_id uuid unique not null,
+    temperature_value decimal(15,2) not null default 0.00,
+    created_date timestamp not null default now(),
+    last_updated timestamp not null default now(),
+    foreign key (employee_id) references employee (id) on delete cascade
+);

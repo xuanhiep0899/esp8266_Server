@@ -1,4 +1,4 @@
-package com.EspServer.Esp.Entities;
+package com.EspServer.Esp.entities;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
