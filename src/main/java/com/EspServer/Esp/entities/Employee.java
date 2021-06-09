@@ -19,19 +19,22 @@ public class Employee {
     private String lastName;
     @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "age", nullable = false)
+    private String age;
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
-    @Column(name = "last_update", nullable = false)
+    @Column(name = "last_updated", nullable = false)
     private LocalDateTime lastUpdate;
 
     public Employee() {
 
     }
 
-    public Employee(String firstName, String lastName, String email) {
+    public Employee(String firstName, String lastName, String email, String age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.age = age;
         this.createdDate = LocalDateTime.now();
         this.lastUpdate = LocalDateTime.now();
     }
@@ -76,7 +79,23 @@ public class Employee {
         this.lastUpdate = lastUpdate;
     }
 
-    public EmployeeDTO toDTO (Employee employee) {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public EmployeeDTO toDTO(Employee employee) {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         this.setFirstName(employee.getFirstName());
         this.setLastName(employee.getLastName());

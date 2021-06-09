@@ -11,19 +11,19 @@ public class AccountEmployee {
     @Column(name = "id")
     @GeneratedValue
     private UUID id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
     private Account account;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id")
     private Employee employee;
     @Column(name = "created_date")
     private LocalDateTime createdDate;
-    @Column(name = "last_update")
+    @Column(name = "last_updated")
     private LocalDateTime lastUpdate;
 
-    public AccountEmployee(UUID id, Account account, Employee employee,
-                           LocalDateTime createdDate, LocalDateTime lastUpdate) {
+    public AccountEmployee(Account account, Employee employee
+            ,LocalDateTime createdDate, LocalDateTime lastUpdate){
         this.id = id;
         this.account = account;
         this.employee = employee;
