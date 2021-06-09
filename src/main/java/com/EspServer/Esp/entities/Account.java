@@ -11,18 +11,24 @@ public class Account {
     @Column(name = "id")
     @GeneratedValue
     private UUID id;
-    @Column(name = "account_name", nullable = false)
+    @Column(name = "account_name")
     private String accountName;
-    @Column(name = "created_date", nullable = false)
+    @Column(name = "password")
+    private String password;
+    @Column(name = "created_date")
     private LocalDateTime createdDate;
-    @Column(name = "last_update", nullable = false)
+    @Column(name = "last_updated")
     private LocalDateTime lastUpdate;
 
-    public Account(UUID id, String accountName, LocalDateTime createdDate, LocalDateTime lastUpdate) {
-        this.id = id;
+    public Account(String accountName,String password, LocalDateTime createdDate, LocalDateTime lastUpdate) {
+        this.password = password;
         this.accountName = accountName;
         this.createdDate = createdDate;
         this.lastUpdate = lastUpdate;
+    }
+
+    public Account() {
+
     }
 
     public UUID getId() {

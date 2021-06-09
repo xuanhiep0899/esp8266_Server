@@ -16,10 +16,9 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping(value = "create-employee")
-    public ResponseEntity<EmployeeDTO> createEmployee(@RequestHeader("Account-Id") UUID accountId,
-                                                      @RequestBody EmployeeDTO employeeDTO) {
-        return new ResponseEntity<>(employeeService.createEmployee(accountId, employeeDTO), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<EmployeeDTO> createEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return new ResponseEntity<>(employeeService.createEmployee( employeeDTO), HttpStatus.OK);
     }
 
 }

@@ -3,6 +3,7 @@ create extension if not exists "uuid-ossp";
 create table account (
 	id uuid not null default uuid_generate_v4() primary key,
 	account_name varchar (255) not null,
+	password varchar(255) not null,
 	created_date timestamp not null default now(),
     last_updated timestamp not null default now()
 );
