@@ -22,13 +22,13 @@ public class temperature {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    public temperature(UUID id, Employee employee, Double temperatureValue, LocalDateTime createdDate, LocalDateTime lastUpdate) {
-        this.id = id;
-        this.employee = employee;
-        this.temperatureValue = temperatureValue;
-        this.createdDate = createdDate;
-        this.lastUpdate = lastUpdate;
-    }
+//    public temperature(UUID id, Employee employee, Double temperatureValue, LocalDateTime createdDate, LocalDateTime lastUpdate) {
+//        this.id = id;
+//        this.employee = employee;
+//        this.temperatureValue = temperatureValue;
+//        this.createdDate = createdDate;
+//        this.lastUpdate = lastUpdate;
+//    }
 
     public UUID getId() {
         return id;
