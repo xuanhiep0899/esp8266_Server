@@ -31,6 +31,10 @@ public class AccountEmployee {
         this.lastUpdate = lastUpdate;
     }
 
+    public AccountEmployee() {
+
+    }
+
     public UUID getId() {
         return id;
     }

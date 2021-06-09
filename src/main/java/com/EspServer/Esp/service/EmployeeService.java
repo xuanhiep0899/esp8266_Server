@@ -21,8 +21,8 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public EmployeeDTO createEmployee(UUID accountId, EmployeeDTO employeeDTO) {
-        Optional<Account> accountOptional = accountRepository.findById(accountId);
+    public EmployeeDTO createEmployee( EmployeeDTO employeeDTO) {
+        Optional<Account> accountOptional = accountRepository.findById(UUID.randomUUID());
 
         if (!accountOptional.isPresent()) {
         }
@@ -30,7 +30,7 @@ public class EmployeeService {
         Employee employee = employeeRepository.findByEmailIgnoreCase(employeeDTO.getEmail());
 
         if (employee != null) {
-            throw new EmployeeAlreadyExistException(employee.getId(), accountId);
+            throw new EmployeeAlreadyExistException(employee.getId(), UUID.randomUUID());
         }
 
 //        Employee newEmployee = new Employee(employee.getFirstName(), employeeDTO.getLastName());

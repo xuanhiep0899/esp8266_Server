@@ -35,6 +35,10 @@ public class ApplicationUser {
         this.last_update = last_update;
     }
 
+    public ApplicationUser() {
+
+    }
+
     public UUID getId() {
         return id;
     }
