@@ -21,6 +21,8 @@ public class Employee {
     private String email;
     @Column(name = "age", nullable = false)
     private String age;
+    @Column(name = "role", nullable = false)
+    private RoleName roleName;
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
     @Column(name = "last_updated", nullable = false)
@@ -30,11 +32,12 @@ public class Employee {
 
     }
 
-    public Employee(String firstName, String lastName, String email, String age) {
+    public Employee(String firstName, String lastName, String email, String age, RoleName roleName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.age = age;
+        this.roleName = roleName;
         this.createdDate = LocalDateTime.now();
         this.lastUpdate = LocalDateTime.now();
     }
@@ -100,5 +103,18 @@ public class Employee {
         this.setFirstName(employee.getFirstName());
         this.setLastName(employee.getLastName());
         return employeeDTO;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", age='" + age + '\'' +
+                ", createdDate=" + createdDate +
+                ", lastUpdate=" + lastUpdate +
+                '}';
     }
 }

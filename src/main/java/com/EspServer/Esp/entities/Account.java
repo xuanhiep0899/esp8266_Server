@@ -19,10 +19,13 @@ public class Account {
     private LocalDateTime createdDate;
     @Column(name = "last_updated")
     private LocalDateTime lastUpdate;
+    @Column(name = "role")
+    private RoleName roleName;
 
-    public Account(String accountName,String password, LocalDateTime createdDate, LocalDateTime lastUpdate) {
+    public Account(String accountName, String password,RoleName rolname, LocalDateTime createdDate, LocalDateTime lastUpdate) {
         this.password = password;
         this.accountName = accountName;
+        this.roleName = rolname;
         this.createdDate = createdDate;
         this.lastUpdate = lastUpdate;
     }
@@ -61,5 +64,10 @@ public class Account {
 
     public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    @Override
+    public String toString() {
+        return accountName + " " + password + " " + createdDate + " " + lastUpdate;
     }
 }

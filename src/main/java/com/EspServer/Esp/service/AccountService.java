@@ -15,7 +15,10 @@ public class AccountService {
 
     public void accountDtoToAccount(AccountDTO accountDTO) {
         Account account = new Account(accountDTO.getAccountName(),accountDTO.getPassword(),
-                accountDTO.getCreateDate(),accountDTO.getLastUpdate());
+                accountDTO.getRoleName(), accountDTO.getCreateDate(), accountDTO.getLastUpdate());
         accountRepository.save(account);
+    }
+
+    public void getAccountByUsername(String username) {
     }
 }

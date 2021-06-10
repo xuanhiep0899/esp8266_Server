@@ -4,6 +4,7 @@ import com.EspServer.Esp.domain.EmployeeDTO;
 import com.EspServer.Esp.entities.Account;
 import com.EspServer.Esp.entities.AccountEmployee;
 import com.EspServer.Esp.entities.Employee;
+import com.EspServer.Esp.entities.RoleName;
 import com.EspServer.Esp.repository.AccountRepository;
 import com.EspServer.Esp.repository.EmployeeRepository;
 import exception.AccountDoesNotExistsException;
@@ -40,7 +41,7 @@ public class EmployeeService {
         Account account = accountOptional.get();
 
         Employee newEmployee = new Employee(employeeDTO.getFirstName(), employeeDTO.getLastName()
-                                            ,employeeDTO.getEmail(), employeeDTO.getAge());
+                                            ,employeeDTO.getEmail(), employeeDTO.getAge(), RoleName.ROLE_EMPLOYEE);
         employeeRepository.save(newEmployee);
         accountEmployeeService.createAccountEmployee(account,newEmployee);
         return newEmployee.toDTO(newEmployee);
