@@ -1,6 +1,7 @@
 package com.EspServer.Esp.domain;
 
 import com.EspServer.Esp.entities.Employee;
+import com.EspServer.Esp.entities.RoleName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.lang.NonNull;
 
@@ -21,22 +22,36 @@ public class EmployeeDTO {
     @JsonProperty
     @NonNull
     private String phoneNumber;
+    @JsonProperty
+    @NonNull
+    private RoleName roleName;
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(@NonNull String firstName, @NonNull String lastName, @NonNull String age,
-                       @NonNull String email, @NonNull String phoneNumber) {
+    public EmployeeDTO(@NonNull String firstName, @NonNull String lastName,
+                       @NonNull String age, @NonNull String email,
+                       @NonNull String phoneNumber, @NonNull RoleName roleName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
+        this.roleName = roleName;
         this.phoneNumber = phoneNumber;
     }
 
     @NonNull
     public String getFirstName() {
         return firstName;
+    }
+
+    @NonNull
+    public RoleName getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(@NonNull RoleName roleName) {
+        this.roleName = roleName;
     }
 
     public void setFirstName(@NonNull String firstName) {

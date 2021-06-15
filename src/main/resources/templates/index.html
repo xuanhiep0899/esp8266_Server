@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <title>User list</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="container">
+    <a href="addEmployee.html" class="btn btn-success">Add</a>
+    <table class="table table-active">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>age</th>
+            <th>Email</th>
+            <th>Create date</th>
+            <th>Last update</th>
+        </tr>
+        <tr th:each="employee : ${employee}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.age}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.createdDate}"></td>
+            <td th:text="${employee.lastUpdate}"></td>
+            <td>
+                <a th:href="@{/edit?id={id}(id=${employee.id})}" href="editEmployee.html" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete?id={id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -20,18 +20,43 @@ public class Account {
     @Column(name = "last_updated")
     private LocalDateTime lastUpdate;
     @Column(name = "role")
+    @Enumerated(EnumType.STRING)
     private RoleName roleName;
 
-    public Account(String accountName, String password,RoleName rolname, LocalDateTime createdDate, LocalDateTime lastUpdate) {
+    public Account(String accountName, String password,
+                   RoleName roleName, LocalDateTime createdDate,
+                   LocalDateTime lastUpdate) {
         this.password = password;
         this.accountName = accountName;
-        this.roleName = rolname;
+        this.roleName = roleName;
         this.createdDate = createdDate;
         this.lastUpdate = lastUpdate;
     }
 
+    public Account(String accountName, String password, RoleName roleName) {
+        this.roleName = roleName;
+        this.accountName = accountName;
+        this.password = password;
+    }
+
     public Account() {
 
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public RoleName getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(RoleName roleName) {
+        this.roleName = roleName;
     }
 
     public UUID getId() {

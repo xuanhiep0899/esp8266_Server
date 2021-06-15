@@ -22,7 +22,9 @@ public class AccountDTO {
     private LocalDateTime createDate ;
     private LocalDateTime lastUpdate;
 
-    public AccountDTO(@NonNull String accountName, @NonNull String password, @NonNull RoleName roleName) {
+    public AccountDTO(@NonNull String accountName,
+                      @NonNull String password,
+                      @NonNull RoleName roleName) {
         this.accountName = accountName;
         this.password = password;
         this.roleName = roleName;

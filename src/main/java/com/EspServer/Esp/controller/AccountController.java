@@ -3,17 +3,14 @@ package com.EspServer.Esp.controller;
 import com.EspServer.Esp.domain.AccountDTO;
 import com.EspServer.Esp.entities.Account;
 import com.EspServer.Esp.repository.AccountRepository;
-import com.EspServer.Esp.service.AccountEmployeeService;
 import com.EspServer.Esp.service.AccountService;
-import org.apache.catalina.mapper.Mapper;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/account")
+@RequestMapping(value = "/api/account")
 public class AccountController {
     @Autowired
     private AccountService accountService;
@@ -21,8 +18,18 @@ public class AccountController {
     @Autowired
     private AccountRepository accountRepository;
 
-    @PostMapping
+    @PostMapping("create-account")
     public void addAccount(@RequestBody AccountDTO accountDTO) {
-        accountService.accountDtoToAccount(accountDTO);
+        accountService.createAccount(accountDTO);
+    }
+
+    @PutMapping("update-account")
+    public void updateAccount(@RequestBody AccountDTO accountDTO){
+        accountService.updateAccount(accountDTO.getAccountName(),accountDTO);
+    }
+
+    @DeleteMapping("delete-account/{accountName}")
+    public void deleteAccount(@PathVariable("accountName") String accountName){
+        accountService.deleteAccount(accountName);
     }
 }

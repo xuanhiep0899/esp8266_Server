@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="col-3"></div>
+    <div class="container col-6">
+        <h1>edit User</h1>
+        <div class="col-md-auto">
+            <form th:action="@{saveUpdate}" th:object="${employee}" action="#" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div>
+                    <label th:text="Name" th:for="name"></label>
+                    <input type="text" th:field="*{name}" class="form-control" placeholder="Name">
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</span>
+                </div>
+                <div style="clear: both; display: block; height: 10px;"></div>
+                <div>
+                    <label th:text="Email" th:for="email"></label>
+                    <input type="text" th:field="*{email}" class="form-control" placeholder="Email">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</span>
+                </div>
+                <div style="clear: both; display: block; height: 10px;"></div>
+                <div>
+                    <label th:text="Phone" th:for="phone"></label>
+                    <input type="text" th:field="*{phone}" class="form-control" placeholder="Phone">
+                    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</span>
+                </div>
+                <div style="clear: both; display: block; height: 10px;"></div>
+                <input type="submit" class="btn btn-success" value="Save">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

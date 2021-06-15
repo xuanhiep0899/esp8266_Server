@@ -22,6 +22,7 @@ public class Employee {
     @Column(name = "age", nullable = false)
     private String age;
     @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
     private RoleName roleName;
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
@@ -30,6 +31,10 @@ public class Employee {
 
     public Employee() {
 
+    }
+
+    public void setRoleName(RoleName roleName) {
+        this.roleName = roleName;
     }
 
     public Employee(String firstName, String lastName, String email, String age, RoleName roleName) {

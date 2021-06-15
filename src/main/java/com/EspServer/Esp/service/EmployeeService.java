@@ -27,7 +27,7 @@ public class EmployeeService {
     @Autowired
     private AccountEmployeeService accountEmployeeService;
 
-    public EmployeeDTO createEmployee( EmployeeDTO employeeDTO, UUID accountId) {
+    public EmployeeDTO createEmployee(EmployeeDTO employeeDTO, UUID accountId) {
         Optional<Account> accountOptional = accountRepository.findById(accountId);
 
         if (!accountOptional.isPresent()) {
@@ -41,11 +41,11 @@ public class EmployeeService {
         Account account = accountOptional.get();
 
         Employee newEmployee = new Employee(employeeDTO.getFirstName(), employeeDTO.getLastName()
-                                            ,employeeDTO.getEmail(), employeeDTO.getAge(), RoleName.ROLE_EMPLOYEE);
+                , employeeDTO.getEmail(), employeeDTO.getAge(),
+                RoleName.ROLE_EMPLOYEE);
         employeeRepository.save(newEmployee);
-        accountEmployeeService.createAccountEmployee(account,newEmployee);
+        accountEmployeeService.createAccountEmployee(account, newEmployee);
         return newEmployee.toDTO(newEmployee);
 
     }
-
 }
